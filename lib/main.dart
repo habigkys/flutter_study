@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:imitate_sirloin/home/home.dart';
 import 'package:imitate_sirloin/category/category.dart';
 import 'package:imitate_sirloin/magazine/magazine.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
       home: MainPage(),

@@ -11,11 +11,62 @@ class MagazinePage extends StatelessWidget {
     return Scaffold(
       appBar: BaseAppBar(appBar: AppBar(), title: title),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              '매거진',
+        child: ListView(
+          children: <Widget>[
+            Container(
+              height: 200.0,
+              margin: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              margin: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              margin: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              margin: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              margin: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: Colors.grey,
+                ),
+              ),
             ),
           ],
         ),
