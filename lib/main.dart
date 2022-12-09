@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:imitate_sirloin/home.dart';
-import 'package:imitate_sirloin/category.dart';
-import 'package:imitate_sirloin/magazine.dart';
-import 'package:imitate_sirloin/my.dart';
-import 'package:imitate_sirloin/search.dart';
+import 'package:imitate_sirloin/home/home.dart';
+import 'package:imitate_sirloin/category/category.dart';
+import 'package:imitate_sirloin/magazine/magazine.dart';
+import 'package:imitate_sirloin/my/my.dart';
+import 'package:imitate_sirloin/search/search.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-/// This is the main application widget.
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -18,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: MainPage(),
     );
@@ -40,11 +40,11 @@ class _MainPageState extends State<MainPage> {
   );
 
   final List<Widget> _widgetOptions = <Widget>[
-    const Home(),
-    const Category(),
-    const Search(),
-    const Magazine(),
-    const My(),
+    const HomePage(),
+    const CategoryPage(),
+    const SearchPage(),
+    const MagazinePage(),
+    const MyPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -53,7 +53,6 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  // 메인 위젯
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +96,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    //해당 클래스가 호출되었을떄
     super.initState();
   }
 
