@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:imitate_sirloin/home/home.dart';
 import 'package:imitate_sirloin/category/category.dart';
-import 'package:imitate_sirloin/magazine/magazine.dart';
+import 'package:imitate_sirloin/magazine/magazinelist.dart';
 import 'package:imitate_sirloin/my/my.dart';
 import 'package:imitate_sirloin/search/search.dart';
 
@@ -44,7 +44,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const CategoryPage(),
     const SearchPage(),
-    const MagazinePage(),
+    const MagazineListPage(),
     const MyPage(),
   ];
 
