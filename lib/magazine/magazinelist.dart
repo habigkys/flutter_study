@@ -9,14 +9,36 @@ class MagazineListPage extends StatelessWidget {
   final String title = '매거진';
 
   fontColor(int i){
-    if(i >= 2){
+    if((i%5+1) >= 3){
       return "white";
     }else{
       return "black";
     }
   }
 
-  containerProvider(BuildContext context){
+  fontColorDecider(String color){
+    switch(color){
+      case "white":
+        return Colors.white;
+      case "black":
+        return Colors.black;
+    }
+  }
+
+  listViewBuilder(BuildContext context){
+    var containerList = containerProvider(context);
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      itemCount: containerList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Column(
+          children: containerList,
+        );
+      }
+    );
+  }
+
+  List<Widget> containerProvider(BuildContext context){
     var containerList = <Widget>[];
     final magazineList = List<MagazineListModel>.generate(
       5,
@@ -26,30 +48,22 @@ class MagazineListPage extends StatelessWidget {
         'Sub Title ${i+1}',
         'Main Title ${i+1}',
         fontColor(i),
+        AssetImage("images/${i%5+1}.webp"),
         'Date ${i+1}',
       ),
     );
 
-    fontColorDecider(String color){
-      switch(color){
-        case "white":
-          return Colors.white;
-        case "black":
-          return Colors.black;
-      }
-    }
-
-    magazineList.forEach((magazineListModel) {
+    for (var magazineListModel in magazineList) {
       containerList.add(
         GestureDetector(
           onTap: (){
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MagazinePage(arguments: magazineListModel))
+                context, MaterialPageRoute(builder: (context) => MagazinePage(id: magazineListModel.id))
             );
           },
           child: Container(
             height: 400.0,
-            margin: const EdgeInsets.all(30.0),
+            margin: const EdgeInsets.all(20.0),
             padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               border: Border.all(
@@ -111,7 +125,7 @@ class MagazineListPage extends StatelessWidget {
           ),
         ),
       );
-    });
+    }
 
     return containerList;
   }
@@ -120,13 +134,12 @@ class MagazineListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(appBar: AppBar(), title: title),
+      // body: listViewBuilder(context),
       body: Center(
         child: ListView(
           children: containerProvider(context),
         ),
       ),
     );
-
-    
   }
 }
