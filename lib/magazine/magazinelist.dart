@@ -45,8 +45,8 @@ class MagazineListPage extends StatelessWidget {
       (i) => MagazineListModel(
         i+1,
         'Label ${i+1}',
-        'Sub Title ${i+1}',
         'Main Title ${i+1}',
+        'Sub Title ${i+1}',
         fontColor(i),
         AssetImage("images/${i%5+1}.webp"),
         'Date ${i+1}',
