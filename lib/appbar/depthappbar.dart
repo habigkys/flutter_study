@@ -25,11 +25,11 @@ class DepthAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           actions: <Widget>[
             IconButton(
-                icon: const Icon(Icons.shopping_cart),
-                color: Colors.black,
-                onPressed: () {
-                  print('shopping cart button is clicked');
-                }
+              icon: const Icon(Icons.shopping_cart),
+              color: Colors.black,
+              onPressed: () {
+                print('shopping cart button is clicked');
+              }
             ),
           ],
         ),

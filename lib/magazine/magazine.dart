@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:imitate_sirloin/appbar/depthappbar.dart';
 import 'package:imitate_sirloin/model/magazineModel.dart';
+
+import '../link/dynamiclink.dart';
+
 
 class MagazinePage extends StatelessWidget {
   const MagazinePage({super.key, required this.id});
@@ -18,7 +22,37 @@ class MagazinePage extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: DepthAppBar(appBar: AppBar()),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBar(
+          toolbarHeight: 50.0,
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          titleTextStyle: const TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+          centerTitle: false,
+          leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              color: Colors.black,
+              onPressed: () {
+                Navigator.pop(context);
+              }
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.shopping_cart),
+              color: Colors.black,
+              onPressed: () async {
+                Share.share(
+                  await DynamicLink().getShortLink(
+                    'magazine',
+                    id,
+                  ),
+                );
+              }
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
