@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sirloin.imitate_sirloin">
    <application
-        android:label="imitate_sirloin"
-        android:name="${applicationName}"
+        android:label="설로인 따라하기"
+        android:name="설로인 따라하기"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
