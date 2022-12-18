@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "37211630046",
+    "project_id": "imitage-sirloin",
+    "storage_bucket": "imitage-sirloin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37211630046:android:cbd08d73a2bb9e1d9a554f",
+        "android_client_info": {
+          "package_name": "com.sirloin.imitate_sirloin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37211630046-l50g215440bnl65s8i7g4lugqhktivd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgNNeXOk2CzrgFQE7XokuCpCXpQpQiR5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37211630046-l50g215440bnl65s8i7g4lugqhktivd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
