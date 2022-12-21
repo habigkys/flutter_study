@@ -10,19 +10,6 @@ import 'package:imitate_sirloin/link/dynamiclink.dart';
 import 'package:imitate_sirloin/magazine/magazinelist.dart';
 import 'package:imitate_sirloin/my/my.dart';
 import 'package:imitate_sirloin/search/search.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-
-Future requestPermission() async {
-  NotificationSettings settings = await _messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    criticalAlert: false,
-    provisional: false,
-    sound: true,
-  );
-}
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -89,21 +76,10 @@ class _MainPageState extends State<MainPage> {
       body: FutureBuilder(
         future: c.initialize(),
         builder: (context, snapshot) {
-          if(snapshot.hasData && snapshot.connectionState == ConnectionState.done){
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text('title', style: TextStyle(fontSize: 20)),
-                  Text('message', style: TextStyle(fontSize: 15)),
-                ],
-              ));
-          }else{
-            return SafeArea(
-              child: _widgetOptions.elementAt(_selectedIndex),
-            );
-          }
-        },
+          return SafeArea(
+            child: _widgetOptions.elementAt(_selectedIndex),
+          );
+        }
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

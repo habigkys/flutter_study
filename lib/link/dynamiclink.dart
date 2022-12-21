@@ -33,6 +33,7 @@ class DynamicLink {
     FirebaseDynamicLinks.instance.onLink.listen((
         PendingDynamicLinkData dynamicLinkData,
         ) {
+      print('dynamicLinkData : ${dynamicLinkData}');
       _redirectScreen(dynamicLinkData);
     }).onError((error) {
     });
@@ -40,8 +41,11 @@ class DynamicLink {
 
   void _redirectScreen(PendingDynamicLinkData dynamicLinkData) {
     if (dynamicLinkData.link.queryParameters.containsKey('id')) {
+      print('dynamicLinkData : ${dynamicLinkData}');
       String link = dynamicLinkData.link.path.split('/').last;
+      print('link : ${link}');
       int id = dynamicLinkData.link.queryParameters['id']! as int;
+      print('id : ${id}');
 
       switch (link) {
         case 'magazine':

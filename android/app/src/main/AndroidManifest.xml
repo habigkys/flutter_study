@@ -2,7 +2,7 @@
     package="com.sirloin.imitate_sirloin">
    <application
         android:label="설로인 따라하기"
-        android:name="설로인 따라하기"
+        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
