@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:imitate_sirloin/main.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:imitate_sirloin/appbar/depthappbar.dart';
@@ -66,7 +67,13 @@ class MagazinePage extends StatelessWidget {
               icon: const Icon(Icons.arrow_back_ios),
               color: Colors.black,
               onPressed: () {
-                Navigator.pop(context);
+                if(Navigator.canPop(context)){
+                  Navigator.pop(context);
+                }else{
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => const MainPage()),
+                  );
+                }
               }
           ),
           actions: <Widget>[

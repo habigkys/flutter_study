@@ -34,6 +34,7 @@ class DynamicLink {
         PendingDynamicLinkData dynamicLinkData,
         ) {
       print('dynamicLinkData : ${dynamicLinkData}');
+      print('queryParam is there?? : ${dynamicLinkData.link.queryParameters['id']}');
       _redirectScreen(dynamicLinkData);
     }).onError((error) {
     });
@@ -41,17 +42,14 @@ class DynamicLink {
 
   void _redirectScreen(PendingDynamicLinkData dynamicLinkData) {
     if (dynamicLinkData.link.queryParameters.containsKey('id')) {
-      print('dynamicLinkData : ${dynamicLinkData}');
       String link = dynamicLinkData.link.path.split('/').last;
-      print('link : ${link}');
-      int id = dynamicLinkData.link.queryParameters['id']! as int;
-      print('id : ${id}');
+      var id = dynamicLinkData.link.queryParameters['id'];
 
       switch (link) {
         case 'magazine':
           Get.offAll(
                 () => MagazinePage(
-              id: id,
+              id: int.parse(id!),
             ),
           );
           break;
@@ -65,7 +63,7 @@ class DynamicLink {
       uriPrefix: dynamicLinkPrefix,
       link: Uri.parse('$dynamicLinkPrefix/$screenName?id=$id'),
       androidParameters: const AndroidParameters(
-        packageName: 'magazine',
+        packageName: 'com.sirloin.imitate_sirloin',
         minimumVersion: 0,
       ),
       iosParameters: const IOSParameters(
@@ -73,6 +71,8 @@ class DynamicLink {
         minimumVersion: '0',
       ),
     );
+
+    print('build Link!!! : ${dynamicLinkParams}');
     final dynamicLink =
     await FirebaseDynamicLinks.instance.buildShortLink(dynamicLinkParams);
 
