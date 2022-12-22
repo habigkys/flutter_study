@@ -18,10 +18,8 @@ class DynamicLink {
       PendingDynamicLinkData? dynamicLinkData = await FirebaseDynamicLinks
           .instance
           .getDynamicLink(Uri.parse(deepLink));
-
       if (dynamicLinkData != null) {
         _redirectScreen(dynamicLinkData);
-
         return true;
       }
     }
@@ -33,8 +31,6 @@ class DynamicLink {
     FirebaseDynamicLinks.instance.onLink.listen((
         PendingDynamicLinkData dynamicLinkData,
         ) {
-      print('dynamicLinkData : ${dynamicLinkData}');
-      print('queryParam is there?? : ${dynamicLinkData.link.queryParameters['id']}');
       _redirectScreen(dynamicLinkData);
     }).onError((error) {
     });
@@ -72,7 +68,6 @@ class DynamicLink {
       ),
     );
 
-    print('build Link!!! : ${dynamicLinkParams}');
     final dynamicLink =
     await FirebaseDynamicLinks.instance.buildShortLink(dynamicLinkParams);
 
