@@ -1,4 +1,9 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -31,7 +36,24 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(padding: const EdgeInsets.all(0), onPressed: () {}, icon: Image.asset('images/naver_button.png'), iconSize: 70,),
-                  IconButton(padding: const EdgeInsets.all(0), onPressed: () {}, icon: Image.asset('images/kakao_button.png'), iconSize: 70),
+                  IconButton(padding: const EdgeInsets.all(0), onPressed: () async {
+                    bool isInstalled = await isKakaoTalkInstalled();
+
+                    OAuthToken token = isInstalled
+                        ? await UserApi.instance.loginWithKakaoTalk()
+                        : await UserApi.instance.loginWithKakaoAccount();
+                    final url = Uri.https('kapi.kakao.com', '/v2/user/me');
+
+                    final response = await get(
+                      url,
+                      headers: {
+                        HttpHeaders.authorizationHeader: 'Bearer ${token.accessToken}'
+                      },
+                    );
+
+                    final profileInfo = json.decode(response.body);
+                    print("카카오 로그인 프로필 인포: ${profileInfo.toString()}");
+                  }, icon: Image.asset('images/kakao_button.png'), iconSize: 70),
                   IconButton(padding: const EdgeInsets.all(0), onPressed: () {}, icon: Image.asset('images/apple_button.jpeg'), iconSize: 70),
                   IconButton(padding: const EdgeInsets.all(0), onPressed: () {}, icon: Image.asset('images/sirloin_button.png'), iconSize: 70),
                 ],

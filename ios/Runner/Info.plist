@@ -49,5 +49,20 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<true/>
+		<key>NSAppTransportSecurity</key>
+        <dict>
+          <key>NSAllowsArbitraryLoads</key>
+          <true/>
+        </dict>
+		<key>CFBundleURLTypes</key>
+        <array>
+          <dict>
+          <key>CFBundleURLSchemes</key>
+          <array>
+            <!-- kakao login -->
+            <string>038a6b15f90316636692a39c960fb64d</string>
+          </array>
+          </dict>
+        </array>
 	</dict>
 </plist>

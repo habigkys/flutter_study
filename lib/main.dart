@@ -11,6 +11,7 @@ import 'package:imitate_sirloin/link/dynamiclink.dart';
 import 'package:imitate_sirloin/magazine/magazinelist.dart';
 import 'package:imitate_sirloin/my/my.dart';
 import 'package:imitate_sirloin/search/search.dart';
+import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('Handling a background message ${message.messageId}');
@@ -66,6 +67,9 @@ void main() async {
     badge: true,
     sound: true,
   );
+
+  // Kakao login
+  KakaoSdk.init(nativeAppKey: '038a6b15f90316636692a39c960fb64d');
 
   runApp(const MyApp());
 }
